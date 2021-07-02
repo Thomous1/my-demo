@@ -1,0 +1,39 @@
+spring:
+    application:
+        name: demo
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/spring_security?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+
+mybatis-plus:
+    configuration:
+        map-underscore-to-camel-case: true
+        auto-mapping-behavior: full
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    mapper-locations: classpath*:mapper/**/*Mapper.xml
+    global-config:
+        banner: false
+        db-config:
+            table-underline: true
+            # 删除前
+            logic-not-delete-value: 1
+            # 删除后
+            logic-delete-value: 0
+
+kafka:
+    consumer:
+        brokers: 127.0.0.1:9092
+        groupId: test_group
+        autoOffsetReset: latest
+        maxPollRecords: 100
+        timeOut: 1000
+        enableAutoCommit: false
+        topic: test_topic
+        userName: root
+        passWord: 123456
+        poll:
+            timeout: 2000
+        semaphoreNum: 50
+
